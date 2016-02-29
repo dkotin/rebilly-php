@@ -17,6 +17,7 @@ use Rebilly\Entities\Login;
 use Rebilly\Entities\ResetPassword;
 use Rebilly\Entities\Session;
 use Rebilly\Entities\Signup;
+use Rebilly\Entities\UpdatePassword;
 use Rebilly\Entities\User;
 use Rebilly\Http\Exception\NotFoundException;
 use Rebilly\Http\Exception\UnprocessableEntityException;
@@ -159,4 +160,32 @@ final class UserService extends Service
     {
         $this->client()->delete('users/{userId}', ['userId' => $userId]);
     }
+
+    /**
+     * @param string $userId
+     * @param array|JsonSerializable|UpdatePassword $data
+     *
+     * @return User
+     */
+    public function updatePassword($userId, $data){
+        return $this->client()->post(
+            $data,
+            'users/{userId}/password',
+            [
+                'userId' => $userId,
+            ]
+        );
+    }
+
+    /**
+     * Gets currencies available to be used as a reporting currency
+     *
+     * @return array - [<currency 3 letter code> => <currency 3 letter code - currency name> ...]
+     */
+    public function reportingCurrencies(){
+        $tno = $this->client()->get( 'reporting-currencies', []  );
+        return $this->client()->get( 'reporting-currencies', []  );
+    }
+
+
 }
