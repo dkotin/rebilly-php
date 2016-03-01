@@ -120,7 +120,7 @@ final class UserService extends Service
      */
     public function load($userId, $params = [])
     {
-        return $this->client()->get('users/{userId}', ['userId' => $userId] + (array) $params);
+        return $this->client()->get('users/{userId}', ['userId' => $userId] + (array)$params);
     }
 
     /**
@@ -167,7 +167,8 @@ final class UserService extends Service
      *
      * @return User
      */
-    public function updatePassword($userId, $data){
+    public function updatePassword($userId, $data)
+    {
         return $this->client()->post(
             $data,
             'users/{userId}/password',
@@ -182,10 +183,9 @@ final class UserService extends Service
      *
      * @return array - [<currency 3 letter code> => <currency 3 letter code - currency name> ...]
      */
-    public function reportingCurrencies(){
-        $tno = $this->client()->get( 'reporting-currencies', []  );
-        return $this->client()->get( 'reporting-currencies', []  );
+    public function reportingCurrencies()
+    {
+        $tno = $this->client()->get('reporting-currencies', []);
+        return $this->client()->get('reporting-currencies', []);
     }
-
-
 }
