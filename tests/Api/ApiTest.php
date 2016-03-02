@@ -564,6 +564,7 @@ class ApiTest extends TestCase
             [Entities\Session::class],
             [Entities\User::class],
             [Entities\ThreeDSecure::class],
+            [Entities\UpdatePassword::class],
         ];
     }
 
@@ -724,6 +725,8 @@ class ApiTest extends TestCase
         switch ($attribute) {
             case 'id':
             case 'password':
+            case 'currentPassword':
+            case 'newPassword':
             case 'customerId':
             case 'contactId':
             case 'websiteId':

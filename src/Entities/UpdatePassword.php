@@ -47,7 +47,7 @@ final class UpdatePassword extends Resource
      */
     public function getCurrentPassword()
     {
-        return $this->getAttribute('newPassword');
+        return $this->getAttribute('currentPassword');
     }
 
     /**
@@ -57,6 +57,6 @@ final class UpdatePassword extends Resource
      */
     public function setCurrentPassword($value)
     {
-        return $this->setAttribute('newPassword', $value);
+        return $this->setAttribute('currentPassword', $value);
     }
 }
