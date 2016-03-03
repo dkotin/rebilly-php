@@ -185,7 +185,6 @@ final class UserService extends Service
      */
     public function reportingCurrencies()
     {
-        $tno = $this->client()->get('reporting-currencies', []);
         return $this->client()->get('reporting-currencies', []);
     }
 }
